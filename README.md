@@ -85,6 +85,7 @@ New-NetFirewallRule -Protocol TCP -LocalPort 22 -Direction Inbound -Action Allow
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList" /t REG_DWORD /f /d 0 /v rbs
 ```
 Она создаст файл в реестре, который визуально скроет пользователя __rbs__, но при этом учётная запись останется активной, для того, чтобы работал поднятый нами SFTP-сервер.
+
 Чтобы отменить это действие необходимо вставить и применить следующую команду:
 ```
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList" /t REG_DWORD /f /d 1 /v rbs
